@@ -1,0 +1,68 @@
+
+#include <iostream>
+#include <iomanip>
+#define _USE_MATH_DEFINES
+#include <cmath>
+using namespace std;
+
+float root(float, float, float);
+long long factorial(long long);
+void output();
+void output_y(float);
+void output_else();
+
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+    int n, m, k;
+    output(); cin >> n >> m >> k;
+    if (k > 0)
+    {
+        float y = ((factorial(k) / factorial(m)) * root(3, k * k, n)) - ((m * m) * root(5, k * k * k, n));
+        output_y(y);
+    }
+    else
+    {
+         output_else();
+    }
+
+     cin.get();
+}
+
+float root(float p, float a, float n)
+{
+    float x = 1;
+    int count = 1;
+    while (count < n + 1)
+    {
+        x = 1 / p * ((p - 1) * x + a / pow(x, p - 1));
+        count += 1;
+    }
+    return x;
+}
+
+long long factorial(long long k)
+{
+    int factorialK;
+    if (k > 1)
+    {
+        factorialK = k * factorial(k - 1);
+    }
+    else
+    {
+        factorialK = 1;
+    }
+    return factorialK;
+}
+
+void output() {
+    cout << "Введіть натуральне число n ,m,k(k>0) :";
+}
+
+void output_y(float y){
+    cout<<y;
+}
+
+void output_else(){
+    cout<<"k<0";
+}
