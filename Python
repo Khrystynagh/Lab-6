@@ -1,0 +1,43 @@
+from math import*
+def output_y(y):
+    print(y)
+    return
+
+
+def output_else():
+    print("k<0")
+    return
+
+
+def root(p, a, n):
+    x = 1
+    count = 1
+    while count < n + 1:
+        import math
+        x = 1 / p * ((p - 1) * x + a / math.pow(x, p - 1))
+        count += 1
+
+    return x
+
+
+def factorial(k):
+    if k > 1:
+
+        factorialK = k * factorial(k - 1)
+
+    else:
+
+        factorialK = 1
+
+    return factorialK
+
+n = int(input("Введіть натуральне число n :"))
+m = int(input("Введіть ціле число m:"))
+k = int(input("Введіть ціле число k(k>0): "))
+if k > 0:
+    y = ((factorial(k) / factorial(m)) * root(3, k * k, n)) - ((m * m) * root(5, k * k * k, n))
+    output_y(y)
+else:
+    output_else()
+
+
